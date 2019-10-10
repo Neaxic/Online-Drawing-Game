@@ -1,0 +1,76 @@
+@font-face{
+    font-family: VCR;
+    src:url(../../fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+h1{
+    color: white;
+    margin: 50px;
+    font-family: VCR;
+    text-align: center;
+    margin: 300px 0 0 0;
+}
+
+body{
+    background: black;
+
+}
+
+p{
+    color: white;
+    text-align: center;
+    font-family: VCR;
+}
+
+ #sketch-holder{
+    margin: 0;
+    display: flex;
+  
+    /* This centers our sketch horizontally. */
+    justify-content: center;
+  
+    /* This centers our sketch vertically. */
+    align-items: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    font-family: VCR;
+    border: none;
+    background-color: black; /* Green */
+    color: white;
+}
+
+.button:hover {
+    text-decoration: underline;
+    color: rgb(185, 121, 121);
+}
+
+ul{
+    color: white;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: VCR;
+    text-align: center;
+}
+
+li{
+    display: inline-block;
+    margin: 20px;
+    
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: rgb(185, 121, 121);
+}
+
