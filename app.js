@@ -1,18 +1,21 @@
 var express = require('express');
 var app = express();
 var serv = require('http').Server(app);
+//var io = require('socket.io')(serv,{});
+var io = module.exports.io = require('socket.io')(server);
+var PORT = process.env.PORT || 8081
 
- app.get('/',function(req, res) {
-    res.sendFile(__dirname + '/client');
-});
+// app.get('/',function(req, res) {
+//    res.sendFile(__dirname + '/client');
+//});
 // app.use('/client',express.static(__dirname + '/client'));
 
-//app.use(express.static('client'));
+app.use(express.static(__dirname + '/client'));
 
-serv.listen(process.env.PORT || 8081);
-console.log('Server started');
+serv.listen(PORT, ()=>{
+    console.log('Server started: '+PORT);
+});
 
-var io = require('socket.io')(serv,{});
 io.sockets.on('connection',function(socket){
     console.log(`New connection ${socket.id}`);
 
