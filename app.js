@@ -9,7 +9,7 @@ var serv = require('http').Server(app);
 
 app.use(express.static('client'));
 
-serv.listen(8081);
+serv.listen(process.env.PORT || 8081);
 console.log('Server started');
 
 var io = require('socket.io')(serv,{});
