@@ -46,6 +46,14 @@ function ColorEraser() {
   b = 0;
 }
 
+function EraseLoc() {
+  background(0, 0, 0);
+}
+
+function EraseGlo() {
+    socket.emit('PositionEvent2');
+  }
+
 function setup() {
     var canvas = createCanvas(window.innerWidth, window.innerHeight-20);
     canvas.parent('sketch-holder');
@@ -58,11 +66,6 @@ function setup() {
     fill (r,g,b);
     noStroke();
     ellipse(x,y,20,20);
-    
-    let pos = {
-     x: x,
-     y: y,
-    };
 
     socket.emit('PositionEvent',{
         x: x,
@@ -70,12 +73,16 @@ function setup() {
         r: r,
         g: g,
         b: b,
-      });
+    });
 }
 
-socket.on('NewPositionEvent',positionRecived);
-
+socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){
     fill (data.r,data.g,data.b);
     ellipse(data.x,data.y,20,20);
+  }
+
+  socket.on('NewPositionEvent2', ResetBackRecived);
+  function ResetBackRecived(data){
+    console.log("test");
   }
