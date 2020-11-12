@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io('https://ancient-hamlet-73501.herokuapp.com/');
 
 var r = 255;
 var g = 255;
