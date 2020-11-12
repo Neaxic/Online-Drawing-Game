@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Mignon-Medium;
-  src: url("Mignon-Medium.otf");
-}
-
 :root {
   --gray0: #f8f8f8;
   --gray1: #dbe1e8;
