@@ -19,7 +19,6 @@ io.sockets.on('connection',function(socket){
     console.log(`New connection ${socket.id}`);
 
     socket.on('PositionEvent', function(data){
-        console.log('Position: ' + 'x: ' + data.x, 'y: ' + data.y);
         socket.broadcast.emit('NewPositionEvent',data);
     });
 
