@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var serv = require('http').Server(app);
 //var io = require('socket.io')(serv,{});
-var io = module.exports.io = require('socket.io')(server);
+var io = module.exports.io = require('socket.io')(serv);
 var PORT = process.env.PORT || 8081
 
 // app.get('/',function(req, res) {
