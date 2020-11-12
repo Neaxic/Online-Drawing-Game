@@ -6,7 +6,7 @@
 //   img = loadImage("gradient.png");
 // }
 
-var socket = io('https://ancient-hamlet-73501.herokuapp.com/');
+var socket = io();
 
 var r = 255;
 var g = 255;

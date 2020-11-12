@@ -7,7 +7,7 @@ var serv = require('http').Server(app);
 });
 // app.use('/client',express.static(__dirname + '/client'));
 
-app.use(express.static('client'));
+//app.use(express.static('client'));
 
 serv.listen(process.env.PORT || 8081);
 console.log('Server started');
