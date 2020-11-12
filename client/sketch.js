@@ -6,7 +6,7 @@
 //   img = loadImage("gradient.png");
 // }
 
-var socket = io('https://ancient-hamlet-73501.herokuapp.com/');
+var socket = io();
 
 var r = 255;
 var g = 255;
@@ -63,7 +63,7 @@ function ColorEraser() {
 }
 
 function setup() {
-    var canvas = createCanvas(1900, 580);
+    var canvas = createCanvas(window.innerWidth, window.innerHeight-20);
     canvas.parent('sketch-holder');
     background(0, 0, 0);
     // socket.on('mouse', newDrawing);
