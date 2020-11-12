@@ -5,12 +5,12 @@ var serv = require('http').Server(app);
 var io = module.exports.io = require('socket.io')(serv);
 var PORT = process.env.PORT || 8081
 
-// app.get('/',function(req, res) {
-//    res.sendFile(__dirname + '/client');
-//});
+app.get('/',function(req, res) {
+    res.sendFile(__dirname + '/client');
+});
 // app.use('/client',express.static(__dirname + '/client'));
 
-app.use(express.static(__dirname + '/client'));
+//app.use(express.static(__dirname + '/client'));
 
 serv.listen(PORT, ()=>{
     console.log('Server started: '+PORT);
