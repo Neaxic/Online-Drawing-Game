@@ -48,10 +48,10 @@ function ColorEraser() {
 }
 
 function Increse() {
-  size += 2;
+  size ++;
 }
 function Decrese() {
-  size -= 2;
+  size --;
 }
 
 function EraseLoc() {
@@ -74,7 +74,7 @@ function setup() {
     const y = mouseY;
     fill (r,g,b);
     noStroke();
-    ellipse(x,y,size,size);
+    ellipse(x,y,20,20);
 
     socket.emit('PositionEvent',{
         x: x,
@@ -90,11 +90,10 @@ socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){
     fill (data.r,data.g,data.b);
     ellipse(data.x,data.y,data.size,data.size);
-    console.log(data);
   }
 
 socket.on('NewResetBackground', ResetBackRecived);
   function ResetBackRecived(){
     background(0,0,0);
-    console.log("Reset - GLO");
+    console.log("Test");
   }
