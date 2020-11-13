@@ -90,10 +90,11 @@ socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){
     fill (data.r,data.g,data.b);
     ellipse(data.x,data.y,data.size,data.size);
+    console.log(data);
   }
 
 socket.on('NewResetBackground', ResetBackRecived);
   function ResetBackRecived(){
     background(0,0,0);
-    console.log("Test");
+    console.log("Reset - GLO");
   }
