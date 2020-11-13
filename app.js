@@ -15,6 +15,9 @@ io.sockets.on('connection',function(socket){
 
     socket.on('PositionEvent', function(data){
         socket.broadcast.emit('NewPositionEvent',data);
-        socket.broadcast.emit('NewPositionEvent2',data);
+    });
+
+    socket.on('ResetBackground', function(){
+        socket.broadcast.emit('NewResetBackground');
     });
 });

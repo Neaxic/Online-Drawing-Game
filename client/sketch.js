@@ -51,7 +51,8 @@ function EraseLoc() {
 }
 
 function EraseGlo() {
-    socket.emit('PositionEvent2');
+    background(0,0,0);
+    socket.emit('ResetBackground');
   }
 
 function setup() {
@@ -82,7 +83,8 @@ socket.on('NewPositionEvent', positionRecived);
     ellipse(data.x,data.y,20,20);
   }
 
-  socket.on('NewPositionEvent2', ResetBackRecived);
-  function ResetBackRecived(data){
-    console.log("test");
+socket.on('NewResetBackground', ResetBackRecived);
+  function ResetBackRecived(){
+    background(0,0,0);
+    console.log("Test");
   }
