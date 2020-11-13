@@ -3,6 +3,7 @@ var socket = io('https://ancient-hamlet-73501.herokuapp.com/');
 var r = 255;
 var g = 255;
 var b = 255;
+var size = 15;
 
 function ColorWhite() {
   r = 255;
@@ -46,6 +47,13 @@ function ColorEraser() {
   b = 0;
 }
 
+function Increse() {
+  size += 2;
+}
+function Decrese() {
+  size -= 2;
+}
+
 function EraseLoc() {
   background(0, 0, 0);
 }
@@ -66,7 +74,7 @@ function setup() {
     const y = mouseY;
     fill (r,g,b);
     noStroke();
-    ellipse(x,y,20,20);
+    ellipse(x,y,size,size);
 
     socket.emit('PositionEvent',{
         x: x,
@@ -74,13 +82,14 @@ function setup() {
         r: r,
         g: g,
         b: b,
+        size: size,
     });
 }
 
 socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){
     fill (data.r,data.g,data.b);
-    ellipse(data.x,data.y,20,20);
+    ellipse(data.x,data.y,data.size,data.size);
   }
 
 socket.on('NewResetBackground', ResetBackRecived);
