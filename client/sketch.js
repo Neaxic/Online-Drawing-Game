@@ -62,6 +62,24 @@ function EraseGlo() {
     background(0,0,0);
     socket.emit('ResetBackground');
   }
+/*
+  function draw(){
+    if((mouseX < window.innerWidth)  && (mouseY < window.innerHeight)){
+      const x = mouseX;
+      const y = mouseY;
+      const px = pmouseX;
+      const py = pmouseY;
+      stroke('red');
+      strokeWeight(2);
+      noFill();
+      ellipse(x,y,size,size);
+      stroke('black');
+      strokeWeight(4);
+      ellipse(px,py,size,size);
+    }
+  }
+*/
+
 
 function setup() {
     var canvas = createCanvas(window.innerWidth, window.innerHeight-20);
@@ -72,13 +90,17 @@ function setup() {
   function mouseDragged() {
     const x = mouseX;
     const y = mouseY;
-    fill (r,g,b);
-    noStroke();
-    ellipse(x,y,20,20);
+    const px = pmouseX;
+    const py = pmouseY;
+    stroke(r,g,b);
+    strokeWeight(size);
+    line(x, y, px, py);
 
     socket.emit('PositionEvent',{
         x: x,
         y: y,
+        px: px,
+        py: py,
         r: r,
         g: g,
         b: b,
@@ -88,8 +110,9 @@ function setup() {
 
 socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){
-    fill (data.r,data.g,data.b);
-    ellipse(data.x,data.y,data.size,data.size);
+    stroke(data.r,data.g,data.b);
+    strokeWeight(data.size);
+    line(data.x,data.y,data.px,data.py);
   }
 
 socket.on('NewResetBackground', ResetBackRecived);
