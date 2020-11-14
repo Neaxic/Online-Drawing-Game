@@ -49,9 +49,11 @@ function ColorEraser() {
 
 function Increse() {
   size ++;
+  document.getElementById("currentSize").innerHTML = "SIZE: " + size;
 }
 function Decrese() {
   size --;
+  document.getElementById("currentSize").innerHTML = "SIZE: " + size;
 }
 
 function EraseLoc() {
@@ -118,5 +120,4 @@ socket.on('NewPositionEvent', positionRecived);
 socket.on('NewResetBackground', ResetBackRecived);
   function ResetBackRecived(){
     background(0,0,0);
-    console.log("Test");
   }
