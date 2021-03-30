@@ -65,20 +65,13 @@
       <selection class="content">
         <selection class="projects" style="padding-bottom: 50px;">
           <h3>The online drawing game</h3>
-          <p>No rules, no invites, everybody included <br>
         Scroll to the right for more drawing space</p>
         <p>Made with javascript, express, nodeJS, <br>
             P5JS & socket.IO. <br>Deployed with Heroku & Netlify</p>
           
         <br>
-        <p>Pastel colors:</p>
-        <button class="button" onclick="ColorWhite()">WHITE</button>
-        <button class="button" onclick="ColorGreen()">GREEN</button>
-        <button class="button" onclick="ColorBlue()">BLUE</button>
-        <button class="button" onclick="ColorPurple()">PURPLE</button>
-        <button class="button" onclick="ColorRed()">RED</button>
-        <button class="button" onclick="ColorYellow()">YELLOW</button>
-        <button class="button" onclick="ColorEraser()">COLOR PICKER</button>
+        <p>Select color:</p>
+        <input name="clr" type="color" id="colorPicker" onclick="colorPicker()" style="width:90%">
         <br>
         <p>Unique:</p>
         <button class="button" onclick="ColorEraser()">ERASER</button>

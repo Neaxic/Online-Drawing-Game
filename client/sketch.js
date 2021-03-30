@@ -5,41 +5,6 @@ var g = 255;
 var b = 255;
 var size = 15;
 
-function ColorWhite() {
-  r = 255;
-  g = 255;
-  b = 255;
-}
-
-function ColorGreen() {
-  r = 152;
-  g = 251;
-  b = 152;
-}
-
-function ColorBlue() {
-  r = 128;
-  g = 206;
-  b = 255;
-}
-
-function ColorPurple() {
-  r = 194;
-  g = 157;
-  b = 253;
-}
-
-function ColorRed() {
-  r = 255;
-  g = 105;
-  b = 97;
-}
-
-function ColorYellow() {
-  r = 253;
-  g = 253;
-  b = 150;
-}
 
 function ColorEraser() {
   r = 0;
@@ -64,6 +29,43 @@ function EraseGlo() {
     background(0,0,0);
     socket.emit('ResetBackground');
   }
+
+function keyPressed(){
+  if(keyCode == 16){
+    if(keyDown)
+    console.log("Registred");
+    if(mouseX != pmouseX){
+      console.log("test");
+    }
+  }
+}
+
+function colorPicker(){
+  console.log(document.getElementById("colorPicker").value);
+  hexToRGB(document.getElementById("colorPicker").value);
+}
+
+function hexToRGB(h){
+  let r = 0, g = 0, b = 0;
+
+  // 3 digits
+  if (h.length == 4) {
+    r = "0x" + h[1] + h[1];
+    g = "0x" + h[2] + h[2];
+    b = "0x" + h[3] + h[3];
+
+  // 6 digits
+  } else if (h.length == 7) {
+    r = "0x" + h[1] + h[2];
+    g = "0x" + h[3] + h[4];
+    b = "0x" + h[5] + h[6];
+  }
+  
+  this.r = r;
+  this.g = g;
+  this.b = b;
+}
+
 /*
   function draw(){
     if((mouseX < window.innerWidth)  && (mouseY < window.innerHeight)){
@@ -108,7 +110,15 @@ function setup() {
         b: b,
         size: size,
     });
+
+    function mousePressed(){
+      console.log("Test");
+      FileList(r,g,b);
+      ellipse(x, y, size, size);
+    }
 }
+
+keyPressed();
 
 socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){
