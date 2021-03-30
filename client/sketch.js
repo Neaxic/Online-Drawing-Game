@@ -3,22 +3,13 @@ var socket = io('https://ancient-hamlet-73501.herokuapp.com/');
 var r = 255;
 var g = 255;
 var b = 255;
-var size = 15;
+var size = 30;
 
 
 function ColorEraser() {
   r = 0;
   g = 0;
   b = 0;
-}
-
-function Increse() {
-  size ++;
-  document.getElementById("currentSize").innerHTML = "SIZE: " + size;
-}
-function Decrese() {
-  size --;
-  document.getElementById("currentSize").innerHTML = "SIZE: " + size;
 }
 
 function EraseLoc() {
@@ -30,19 +21,15 @@ function EraseGlo() {
     socket.emit('ResetBackground');
   }
 
-function keyPressed(){
-  if(keyCode == 16){
-    if(keyDown)
-    console.log("Registred");
-    if(mouseX != pmouseX){
-      console.log("test");
-    }
-  }
-}
 
-function colorPicker(){
-  console.log(document.getElementById("colorPicker").value);
-  hexToRGB(document.getElementById("colorPicker").value);
+window.onload=function(){
+  document.getElementById('colorPicker').addEventListener("change", function(){
+    hexToRGB(document.getElementById("colorPicker").value);
+  });  
+  document.getElementById('sizeRange').addEventListener("change", function(){
+    size = document.getElementById('sizeRange').value;
+    document.getElementById("currentSize").innerHTML = "SIZE: " + size;
+  })
 }
 
 function hexToRGB(h){
@@ -117,8 +104,6 @@ function setup() {
       ellipse(x, y, size, size);
     }
 }
-
-keyPressed();
 
 socket.on('NewPositionEvent', positionRecived);
   function positionRecived(data){

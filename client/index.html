@@ -71,19 +71,21 @@
           
         <br>
         <p>Select color:</p>
-        <input name="clr" type="color" id="colorPicker" onclick="colorPicker()" style="width:90%">
+        <input id="colorPicker" name="clr" type="color" style="width:90%">
         <br>
+        <p>Ajust size:</p>
+        <input id="sizeRange" type="range" min="1" max="100" value="30" class="slider" id="myRange">
+        <label id="currentSize">Size: 30</label>
         <p>Unique:</p>
         <button class="button" onclick="ColorEraser()">ERASER</button>
         <button class="button" onclick="EraseLoc()">RESET (local)</button>
         <button class="button" onclick="EraseGlo()">RESET (global)</button>
         <br>
-        <button class="button" onclick="Increse()">INCRESE</button>
-        <button class="button" onclick="Decrese()">DECRESE</button>
-        <label id="currentSize">Size: 15</label>
+        <!--
         <p>Create Lobby: (todo)</p>
         <button class="button" onclick="ColorEraser()">CREATE</button>
         <button class="button" onclick="ColorEraser()">JOIN</button>
+        -->
     </selection>
 </selection>
 
